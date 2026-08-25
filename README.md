@@ -23,7 +23,31 @@ To numerically evaluate the aerodynamic performance of a 3-bladed toroidal prope
 | Turbulence Model | k-ε (Standard / Realizable) |
 | Solver | ANSYS Fluent |
 
+## Geometry & Mesh Details
+
+### CAD Geometry
+![Toroidal Propeller CAD Model](propeller_cad.png)
+
+* **Design Software:** SolidWorks
+* **Configuration:** 3-bladed closed-loop toroidal propeller
+* **Features:** Continuous loop geometry designed to mitigate tip vortices by eliminating open blade tips.
+
 ---
+
+### Mesh Specifications
+
+The computational grid was generated in **ANSYS Fluent Meshing** using the parameters extracted below:
+
+| Parameter | Setting / Value |
+|---|---|
+| **Physics Preference** | CFD |
+| **Solver Preference** | Fluent |
+| **Element Order** | Linear |
+| **Global Element Size** | $6.0 \times 10^{-3} \text{ m}$ ($6 \text{ mm}$) |
+| **Smoothing** | Medium |
+| **Target Skewness** | Default (0.9) |
+| **Total Nodes** | 247,344 |
+| **Total Elements** | 1,351,455 |
 
 ## Computational Methodology
 

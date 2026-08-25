@@ -51,9 +51,7 @@ The computational domain utilizes an unstructured grid generated in **ANSYS Mesh
 | **Total Nodes** | 247,344 |
 | **Total Elements** | 1,351,455 |
 
-> *Note: Force convergence (Thrust and Torque) was verified across grid density variations to ensure mesh independence.*
 
----
 
 ## Computational Methodology & Boundary Conditions
 
@@ -163,7 +161,15 @@ $$P = 0.02571 \text{ N}\cdot\text{m} \times 1047.20 \text{ rad/s} \approx \mathb
 * **Meshing:** ANSYS Meshing
 * **CFD Solver & Post-Processing:** ANSYS Fluent
 
----
+## Simulation Files & Downloads
+
+Due to file size limits on GitHub web uploads, the simulation case and raw solution files are hosted on Google Drive:
+
+* **3D CAD Model (`.stp`):** Available in the `CAD/` folder in this repository.
+* **ANSYS Fluent Case File (`.cas.h5`):** [Download Case File on Google Drive](https://drive.google.com/drive/folders/1tlVy5RCjh66kpfaGeZx7wOGJbWrkQOzW?usp=sharing)
+* **Full Solution Data (`.dat.h5`):** [Download Solution Data on Google Drive](https://drive.google.com/drive/folders/1tlVy5RCjh66kpfaGeZx7wOGJbWrkQOzW?usp=sharing)
+
+> **Note:** The `.cas.h5` file includes the full 3D domain mesh, sliding mesh model settings, boundary conditions, and transient solver setups.
 
 ## Author
 

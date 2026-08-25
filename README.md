@@ -122,33 +122,76 @@ To standardize performance evaluation, non-dimensional parameters are calculated
 
 ---
 
-## Flow-Field Analysis
+## Flow-Field & Post-Processing Visualizations
 
-Post-processing includes structural flow inspection around the toroidal blades using:
-* **Static & Absolute Pressure Contours:** To evaluate pressure differential across pressure and suction sides.
-* **Velocity Vectors & Contours:** To observe tip-vortex mitigation characteristic of toroidal geometry.
-* **Streamlines:** To visualize swirl flow and downstream wake acceleration.
+### 1. Blade Surface Velocity Distribution
+![Blade Surface Velocity Contour](vel_contour.png)
+
+**Physical Interpretation:**
+* **Tip Speed Maxima:** The linear velocity reaches its peak at the outermost radii of the toroidal loops, topping out at approximately **$52.3 \text{ m/s}$** ($5.027 \times 10^1 \text{ m/s}$). This agrees with the rotational velocity equation $v = \omega r$.
+* **Gradual Velocity Gradient:** Velocity smoothly increases from near **$0 \text{ m/s}$** at the central hub region outward along the closed loops. The continuous toroidal loop structure eliminates sharp blade tips, which smooths out high-velocity localized spikes typical of traditional open propellers.
+
+---
+
+### 2. Surface Static Pressure Contour
+![Surface Static Pressure Contour](pressure_contour.png)
+
+**Physical Interpretation:**
+* **Pressure Differential ($ \Delta P $):** The contour demonstrates a distinct pressure variation across the blade surfaces. High static pressure (up to **$+275.1 \text{ Pa}$**, marked in red/orange) develops on the driving face of the blades, pushing air downstream.
+* **Suction Zone Generation:** Low relative static pressure drops down to **$-874.5 \text{ Pa}$** (marked in dark blue) on the suction side, particularly near inner curvature joins. 
+* **Thrust Mechanism:** The net thrust force ($T = 0.07889 \text{ N}$) is direct integration of this pressure difference ($\Delta P = P_{\text{pressure}} - P_{\text{suction}}$) over the effective surface area of the toroidal blades.
 
 ---
 
-## Results & Plots
+### 3. Velocity Streamlines & Wake Structure
+![3D Velocity Streamlines](vel_streamline.png)
 
-### Thrust Monitor
-![Thrust vs Time Plot](path/to/thrust_plot.png)
+**Physical Interpretation:**
+* **Downstream Acceleration:** Streamlines visualize fluid draw from the far field (blue lines $\approx 0 - 13.2 \text{ m/s}$) accelerating as air approaches and passes through the rotor plane, reaching peak local core velocities around **$52.96 \text{ m/s}$**.
+* **Vortex Mitigation:** Standard propellers shed powerful tip vortices from open blade tips into a turbulent helical wake. The toroidal loop geometry redirects vortex structures back into the wake stream, keeping recirculation localized around the blade roots and suppressing broad tip-vortex shedding.
 
-### Torque Monitor
-![Torque vs Time Plot](path/to/torque_plot.png)
+## Final Results
 
-### Shaft Power Monitor
-![Power vs Time Plot](path/to/power_plot.png)
+The transient CFD simulation was performed for the 3-bladed toroidal propeller at 10,000 RPM and an inlet velocity of 0.1 m/s. The final aerodynamic performance parameters obtained from ANSYS Fluent are summarized below.
 
-### Pressure Distribution
-![Pressure Contours](path/to/pressure_contour.png)
-
-### Velocity Distribution & Wake
-![Velocity Contours](path/to/velocity_contour.png)
+| Parameter | Final Value |
+|---|---:|
+| Propeller Diameter | 100 mm |
+| Number of Blades | 3 |
+| Rotational Speed | 10,000 RPM |
+| Inlet Velocity | 0.1 m/s |
+| Thrust ($T$) | 0.07889 N |
+| Torque ($Q$) | 0.02571 N·m |
+| Shaft Power ($P$) | 26.92 W |
 
 ---
+
+### Shaft Power Calculation
+
+The shaft power is calculated from the aerodynamic torque and angular velocity:
+
+$$P = Q \cdot \omega$$
+
+where:
+* $P$ = Shaft Power (W)
+* $Q$ = Propeller Torque (N·m)
+* $\omega$ = Angular Velocity (rad/s)
+
+The angular velocity is calculated as:
+
+$$\omega = \frac{2\pi N}{60}$$
+
+For $N = 10,000 \text{ RPM}$:
+
+$$\omega = \frac{2\pi (10000)}{60} \approx 1047.20 \text{ rad/s}$$
+
+Hence:
+
+$$P = 0.02571 \text{ N}\cdot\text{m} \times 1047.20 \text{ rad/s}$$
+
+$$\mathbf{P \approx 26.92 \text{ W}}$$
+
+The results indicate the aerodynamic loading and power requirement of the toroidal propeller under the specified transient operating condition.
 
 ## Key Takeaways
 
